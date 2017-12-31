@@ -4,7 +4,6 @@ const path = require('path');
 const uuid = require('uuid/v1');
 const downloadPage = (url='http://nodeprogram.com') =>{
     const fetchPage = (urlF, callback) =>{
-        const folderName = uuid();
         htpp.get(url,(response) => {
             let buff='';
             response.on('data', (chunk) =>{
@@ -23,6 +22,7 @@ const downloadPage = (url='http://nodeprogram.com') =>{
         });
     }
     
+    const folderName = uuid();
     fs.mkdirSync(folderName);
     
     fetchPage(url, (error, data) => {
